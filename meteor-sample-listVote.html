@@ -1,0 +1,41 @@
+<head>
+  <title>meteor-sample-listVote</title>
+</head>
+
+<body>
+  {{> main}}
+</body>
+
+<template name="main">
+  <h1>Votez pour un sujet</h1>
+  {{loginButtons align="left"}}
+  
+  {{#if atLeatOneSubject}}
+  <ol>
+  {{#each subjects}}
+    <li>{{#if currentUser and isAdmin}}<button class="btn-remove-subject btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></button>{{/if}}
+      <div class="btn-group">
+        <button class="btn-vote-up btn btn-xs btn-success"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+        <button class="btn-vote-down btn btn-xs btn-warning"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+      </div>
+      {{desc}} : {{count}}</li>
+  {{/each}}
+  </ol>
+  {{/if}}
+  
+  {{#unless atLeatOneSubject}}
+  <cite>Aucun sujet en base, allez !</cite><br />
+  {{/unless}}
+  
+  <div class="form-group {{#if hasError}}has-error{{/if}}">
+    <div class="col-xs-2">
+      <input type="text" id="fld-subject-label" class="form-control" />
+    </div>
+    <input type="button" id="btn-add-subject" class="btn btn-default" value="Ok" />
+    {{> error}}
+  </div>
+</template>
+
+<template name="error">
+  <label class="control-label" for="fld-subject-label">{{error}}</label>
+</template>
