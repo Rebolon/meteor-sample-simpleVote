@@ -5,30 +5,6 @@
 // Collection, disponible client/serveur
 Subjects = new Meteor.Collection('Subjects' /*'msl-subjects'*/);
 
-// fonctions communes
-isAdmin = function (user) {
-    var isAdmin = 0;
-    
-    if (!user) {
-      console.log("Utilisateur non connecté");
-      return isAdmin;
-    }
-    
-    user.profile.role.forEach(function (oneRole) {
-      if ("admin" === oneRole) {
-        isAdmin = true;
-      }
-    });
-     
-    return isAdmin;
-  };
-
-// config de accounts
-Accounts.config({
-  sendVerificationEmail : 0,
-  forbidClientAccountCreation : 1
-});
-
 if (Meteor.isClient) {
   // fonctions côtés client
   resetError = function () {
@@ -55,35 +31,22 @@ if (Meteor.isClient) {
       return Subjects.find({}, {sort: {count: -1}});
     },
     
-    isAdmin: function () {
-      return isAdmin(Meteor.user());
-    },
-    
     hasError: function () {
       return !!Session.get('error');
     }
   });
 
   Template.main.events({
-    'click .btn-remove-subject' : function () {
-      /**
-       * Attention 
-       * sécurité inutile car : 
-       *   1/ le btn ne s'affiche pas 
-       *   2/ stt c'est facilement contournable via la console en copiant/collant le code entouré 
-       *  donc : remove insecure ! et ajout de Allow/Deny
-       */
-      if (isAdmin) {
-        Subjects.remove({_id: this._id});
-      }
-      
+    'click button': function() {
+      resetError();
+    },
+    
+    'focus #fld-subject-label': function() {
       resetError();
     },
     
     'click .btn-vote-up': function () {
       Subjects.update({_id: this._id}, {$inc: {count: 1}});
-      
-      resetError();
     },
     
     'click .btn-vote-down': function () {
@@ -93,8 +56,6 @@ if (Meteor.isClient) {
       }
       
       Subjects.update({_id: this._id}, {$inc: {count: -1}});
-      
-      resetError();
     },
     
     'click #btn-add-subject': function () {
@@ -108,8 +69,7 @@ if (Meteor.isClient) {
       
       if (!Subjects.find({label: el.value}).count()) {
         Subjects.insert({'label': el.value, 'count': 1});
-        
-        resetError();
+        el.value = '';
       } else {
         Session.set('error', 'label déjà présent');
       }
@@ -117,17 +77,3 @@ if (Meteor.isClient) {
   });
 }
 
-if (Meteor.isServer) {
-  // init app on first launch
-  if (!Meteor.users.find({username : "rebolon"}).count()) {
-    Accounts.createUser({
-      username : "rebolon",
-      email : "richard.tribes@gmail.com",
-      password : "default",
-      profile : {
-        name : "Benjamin",
-        role : ["admin"]
-      }
-    });
-  }
-}
