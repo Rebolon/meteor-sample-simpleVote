@@ -20,3 +20,6 @@ Step2 show
  * how to add Collection security
  * how to manipulate data on insert
  * how to add data check server side
+
+Step3 show
+ * how to use publish / subscribe
