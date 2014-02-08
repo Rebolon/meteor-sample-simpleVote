@@ -1,11 +1,3 @@
-<head>
-  <title>meteor-sample-listVote</title>
-</head>
-
-<body>
-  {{> main}}
-</body>
-
 <template name="main">
   <h1>Votez pour un sujet</h1>
   {{loginButtons align="left"}}
@@ -34,8 +26,4 @@
     <button id="btn-add-subject" class="btn btn-default">Ok</button>
     {{> error}}
   </div>
-</template>
-
-<template name="error">
-  <label class="control-label" for="fld-subject-label">{{error}}</label>
 </template>
