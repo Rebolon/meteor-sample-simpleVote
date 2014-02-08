@@ -27,3 +27,12 @@ Step3 show
 Step4 show
  * how to use routing with iron-router
  * how to use external js library (nprogress)
+
+Step4.1 show (on a forked branch)
+ * how to use fast-render
+
+Step5 show
+ * how to create a package
+ * how to test the package
+ * how to test the app with Laika
+

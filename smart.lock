@@ -4,7 +4,10 @@
     "basePackages": {
       "bootstrap-3": {},
       "accounts-ui-bootstrap-3": {},
-      "iron-router": {}
+      "iron-router": {},
+      "lyonJS": {
+        "path": "packages/lyonJS"
+      }
     },
     "packages": {
       "bootstrap-3": {
@@ -21,6 +24,9 @@
         "git": "https://github.com/EventedMind/iron-router.git",
         "tag": "v0.6.2",
         "commit": "ce56e58b45624dce992490f3a1c10f10d3948bae"
+      },
+      "lyonJS": {
+        "path": "packages/lyonJS"
       }
     }
   }
