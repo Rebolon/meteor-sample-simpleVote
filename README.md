@@ -15,3 +15,8 @@ Step0 show
 Step1 show
  * how to split your code
  * remove isClient/isServer
+ 
+Step2 show
+ * how to add Collection security
+ * how to manipulate data on insert
+ * how to add data check server side

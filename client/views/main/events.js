@@ -30,7 +30,7 @@ Template.main.events({
       return;
     }
     
-    Subjects.update({_id: this._id}, {$inc: {count: -1}});
+    Subjects.update({_id: this._id}, {$inc: {count: -1}}, Rebolon.Collection.checkError);
   },
   
   'click #btn-add-subject': function () {
@@ -46,9 +46,8 @@ Template.main.events({
     data.label = el.value;
     
     if (!Subjects.find({label: data.label}).count()) {
-      Subjects.insert(data);
+      Subjects.insert(data, Rebolon.Collection.checkError);
     } else {
-      el.value = '';
       Session.set('error', 'label déjà présent');
     }
   },
