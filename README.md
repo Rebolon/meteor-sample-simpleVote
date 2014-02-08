@@ -23,3 +23,7 @@ Step2 show
 
 Step3 show
  * how to use publish / subscribe
+
+Step4 show
+ * how to use routing with iron-router
+ * how to use external js library (nprogress)

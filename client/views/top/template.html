@@ -1,0 +1,16 @@
+<template name="top">
+<h1>Classement des sujets {{getTop}}</h1>
+  {{#if atLeatOneSubject}}
+  <ol>
+  {{#each subjects}}
+    <li>{{label}} : {{count}}</li>
+  {{/each}}
+  </ol>
+  {{/if}}
+  
+  {{#unless atLeatOneSubject}}
+  <cite>Aucun sujet en base, allez !</cite><br />
+  {{/unless}}
+  
+  <button id="goToVote" class="btn btn-link">Aller voter</button>
+</template>
