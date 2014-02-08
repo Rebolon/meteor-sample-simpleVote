@@ -14,17 +14,19 @@ var progress = function(handle) {
 Router.map(function() {
     this.route('main', {
         path: '/vote',
-        before: function() {
+        waitOn: function() {
             var handle = Meteor.subscribe('all-subjects');
             progress.call(this, handle);
-        }
+        },
+        fastRender: true
     });
 
     this.route('top', {
         path: '/',
-        before: function() {
+        waitOn: function() {
             var handle = Meteor.subscribe('top-subjects', Session.get('topLimit'));
             progress.call(this, handle);
-        }
+        },
+        fastRender: true
     });
 });

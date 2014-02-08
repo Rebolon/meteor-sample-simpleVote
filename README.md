@@ -27,3 +27,6 @@ Step3 show
 Step4 show
  * how to use routing with iron-router
  * how to use external js library (nprogress)
+
+Step5 show
+ * how to use fast-render
