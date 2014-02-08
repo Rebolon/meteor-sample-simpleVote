@@ -1,8 +1,9 @@
 Log.info('client/lib');
 
-// fonctions côtés client
+// fonctions client
 (function () {
   Session.setDefault("error", "");
+  Session.setDefault("topLimit", 3);
   
   var Main = {
     Alert: {

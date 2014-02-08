@@ -45,7 +45,7 @@ Template.main.events({
     
     data.label = el.value;
     
-    if (!Subjects.find({label: data.label}).count()) {
+    if (!Subjects.find({label: data.value}).count()) {
       Subjects.insert(data, Rebolon.Collection.checkError);
     } else {
       Session.set('error', 'label déjà présent');
