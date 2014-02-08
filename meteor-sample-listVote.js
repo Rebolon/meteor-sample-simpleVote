@@ -5,6 +5,39 @@
 // Collection, disponible client/serveur
 Subjects = new Meteor.Collection('Subjects' /*'msl-subjects'*/);
 
+// fonctions communes
+isAdmin = function (user) { // on pourrait utiliser le package role pour simplifier
+    var isAdmin = false;
+    
+    if (!user) {
+      console.log("Utilisateur non connecté");
+      return isAdmin;
+    }
+   
+    if (Match.test(parseInt(user), Number)) {
+        user = Meteor.users.findOne(user);
+    }
+
+    if (!Match.test(user, Object)) {
+        console.log('wrong parameter');
+        return isAdmin;
+    }
+
+    user.profile.role.forEach(function (oneRole) {
+      if ("admin" === oneRole) {
+        isAdmin = true;
+      }
+    });
+     
+    return isAdmin;
+  };
+
+// config de accounts
+Accounts.config({
+  sendVerificationEmail : 0,
+  forbidClientAccountCreation : 1
+});
+
 if (Meteor.isClient) {
   // fonctions côtés client
   resetError = function () {
@@ -31,6 +64,10 @@ if (Meteor.isClient) {
       return Subjects.find({}, {sort: {count: -1}});
     },
     
+    isAdmin: function () {
+      return isAdmin(Meteor.user());
+    },
+    
     hasError: function () {
       return !!Session.get('error');
     }
@@ -43,6 +80,19 @@ if (Meteor.isClient) {
     
     'focus #fld-subject-label': function() {
       resetError();
+    },
+    
+    'click .btn-remove-subject' : function () {
+      /**
+       * Attention 
+       * sécurité inutile car : 
+       *   1/ le btn ne s'affiche pas 
+       *   2/ stt c'est facilement contournable via la console en copiant/collant le code entouré 
+       *  donc : remove insecure ! et ajout de Allow/Deny
+       */
+      if (isAdmin(Meteor.user())) {
+        Subjects.remove({_id: this._id});
+      }
     },
     
     'click .btn-vote-up': function () {
@@ -77,3 +127,17 @@ if (Meteor.isClient) {
   });
 }
 
+if (Meteor.isServer) {
+  // init app on first launch
+  if (!Meteor.users.find({username : "rebolon"}).count()) {
+    Accounts.createUser({
+      username : "rebolon",
+      email : "richard.tribes@gmail.com",
+      password : "default",
+      profile : {
+        name : "Benjamin",
+        role : ["admin"]
+      }
+    });
+  }
+}
