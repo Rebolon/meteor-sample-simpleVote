@@ -9,7 +9,7 @@ Meteor.startup(function funcMeteorStartupPublish() {
             future.return(Subjects.find());
         };
 
-      Meteor.setTimeout(timeoutCb, 5000);
+      Meteor.setTimeout(timeoutCb, 1000);
 
       return future.wait();
   });
@@ -22,7 +22,7 @@ Meteor.startup(function funcMeteorStartupPublish() {
             future.return(Subjects.find({}, {sort: {count: -1}, limit: limitQuery}));
         };
 
-    Meteor.setTimeout(timeoutCb, 2000);
+    Meteor.setTimeout(timeoutCb, 1000);
 
     return future.wait();
   });
