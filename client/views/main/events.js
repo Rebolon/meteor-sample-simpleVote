@@ -8,47 +8,22 @@ Template.main.events({
   },
   
   'click .btn-remove-subject' : function () {
-    /**
-       * Attention 
-       * sécurité inutile car : 
-       *   1/ le btn ne s'affiche pas 
-       *   2/ stt c'est facilement contournable via la console en copiant/collant le code entouré 
-       *  donc : remove insecure ! et ajout de Allow/Deny
-       */
-    if (Rebolon.User.isAdmin(Meteor.user())) {
-      Subjects.remove({_id: this._id});
-    }
+	  Meteor.call('rmSubject', this._id);
   },
   
   'click .btn-vote-up': function () {
-    Subjects.update({_id: this._id}, {$inc: {count: 1}});
+    Meteor.call('voteUpSubject', this._id);
   },
   
   'click .btn-vote-down': function () {
-    if (this.count === 0) {
-      Session.set('error', 'on ne peut voter - si on est déjà à 0');
-      return;
-    }
-    
-    Subjects.update({_id: this._id}, {$inc: {count: -1}}, Rebolon.Collection.checkError);
+	  Meteor.call('voteDownSubject', this._id);
   },
   
   'click #btn-add-subject': function () {
     var el = document.querySelector('#fld-subject-label'),
-        data = {label: null, count: 1};
-    
-    if (!el
-        || !el.value.trim().length) {
-      Session.set('error', 'Le champ ne doit pas être vide');
-      return;
-    }
-    
-    data.label = el.value;
-    
-    if (!Subjects.find({label: data.value}).count()) {
-      Subjects.insert(data, Rebolon.Collection.checkError);
-    } else {
-      Session.set('error', 'label déjà présent');
-    }
+        data = {};
+        
+    data.value = el.value || '';
+    Meteor.call('addSubject', data, Rebolon.Collection.checkError); 
   },
 });
