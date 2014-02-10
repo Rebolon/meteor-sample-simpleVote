@@ -36,3 +36,5 @@ Step5 show
  * how to test the package
  * how to test the app with Laika
 
+Step6 show
+ * how to use methods (and isSimulation) instead of mini-mongo
