@@ -1,0 +1,1272 @@
+
+<!DOCTYPE html>
+<html class="decks show " data-account="free">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>meteorjs, first walk by rebolon</title>
+    <meta name="description" content="Following my first meteorJs talk, here is the next step, more technical" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <meta property="og:title" content="meteorjs, first walk by rebolon" />
+    <meta property="og:site_name" content="Slides" />
+    <meta property="og:image" content="https://s3.amazonaws.com/media-p.slid.es/thumbnails/rebolon/1e2253/meteorjs-first-walk.jpg" />
+    <meta property="og:type" content="presentation" />
+    <meta property="og:url" content="http://slid.es/rebolon/meteorjs-first-walk" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+      <link href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,600,700&subset=latin,cyrillic-ext,greek-ext,greek,latin-ext,cyrillic" rel="stylesheet" type="text/css">
+
+    <link href="//slid.es/assets/slides/slides-62c8b2c81458fe2e42389866871a17b2.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="//slid.es/assets/application-c9f7587e5f9987d24a22818dd0604b76.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="//slid.es/assets/modernizr-8de39a011a7fbb0c52e24f7f6a30f4e7.js" type="text/javascript"></script>
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="5PsipzCvnK1DxnazIEybsMPyt/gvE0fH7LyquBT44r4=" name="csrf-token" />
+    <script type="text/javascript">
+  var analytics=analytics||[];analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);var r=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}},i=["identify","track","trackLink","trackForm","trackClick","trackSubmit","pageview","ab","alias","ready"];for(var s=0;s<i.length;s++)analytics[i[s]]=r(i[s])};
+  analytics.load('8t66f1pnq9');
+</script>
+    <script>
+UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/f7sH7NavrjjvuGxByaw.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
+
+UserVoice.push(['set', {
+  accent_color: '#448dd6',
+  trigger_color: 'white',
+  trigger_background_color: 'rgba(46, 49, 51, 0.6)',
+  position: 'automatic'
+}]);
+
+UserVoice.push(['identify', {
+  email:      "richard.tribes@gmail.com",
+  name:       "rebolon",
+  id:         "31920",
+  type:       "default",
+  created_at: 1367691023
+
+}]);
+</script>
+    	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@SlidesApp">
+	<meta name="twitter:title" content="meteorjs, first walk">
+	<meta name="twitter:description" content="Following my first meteorJs talk, here is the next step, more technical">
+	<meta name="twitter:image" content="https://s3.amazonaws.com/media-p.slid.es/thumbnails/rebolon/1e2253/meteorjs-first-walk.jpg">
+
+	<link href="//slid.es/assets/deck-edb73f0ee546176c6acd21f89ea1bc42.css" media="all" rel="stylesheet" type="text/css" />
+	<style id="user-css-output" type="text/css"></style>
+
+  <script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script></head>
+  <body>
+    <div id="container" class="container">
+      
+<header class="global-header show-on-scroll">
+  <div class="wrapper">
+    <h1 class="logo-animation">
+      <a class="symbol" href="/">
+        <div class="box-1"></div>
+        <div class="box-2"></div>
+        <div class="box-3"></div>
+      </a>
+      <a class="word" href="/"></a>
+    </h1>
+    <ul class="nav">
+      <li data-page-id="home/explore"><a href="/explore" class="page-link hide-in-editor">Explore</a></li>
+      <li data-page-id="static/features"><a href="/features" class="page-link hide-in-editor">Features</a></li>
+      <li data-page-id="static/pricing"><a href="/pricing" class="page-link hide-in-editor">Pricing</a></li>
+
+
+        <li>
+          <div class="profile dropdown">
+  <a class="dropdown-button page-link" href="/rebolon">
+    <span class="icon i-user"></span>
+    <span class="username">rebolon</span>
+  </a>
+
+  <div class="dropdown-list">
+    <ul class="dropdown-list-inner">
+      <li>
+        <a class="button grey" href="/rebolon">
+          Profile <span class="icon i-home"></span>
+        </a>
+      </li>
+      <li>
+        <a class="button grey" href="/rebolon/new">
+          New deck <span class="icon i-plus"></span>
+        </a>
+      </li>
+      <li>
+        <a class="button grey" href="/users/edit">
+          Settings <span class="icon i-cog"></span>
+        </a>
+      </li>
+      <li>
+        <a class="button grey" href="/pricing">
+          Go Pro <span class="icon i-star"></span>
+        </a>
+      </li>
+      <li>
+        <a class="button grey negative" href="/users/sign_out" data-method="delete" rel="nofollow">
+          Sign out <span class="icon i-exit"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+        </li>
+
+    </ul>
+  </div>
+</header>
+      
+      <div id="main" class="main" role="main">
+        
+
+
+
+<div class="marquee loading">
+
+	<div class="reveal-frame">
+		<div class="reveal reveal-viewport theme-font-league theme-color-grey-blue">
+			<div class="slides">
+				<section><h1><br></h1>
+<h1>meteorjs</h1>
+<p>Les applications web ré-inventées</p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<div style="font-style: normal; font-variant: normal; text-align: left;"><font style="font-size: 24px;"> Twitter: @<a href="https://twitter.com/rebolon">Rebolon</a></font></div>
+<div style="font-style: normal; font-variant: normal; text-align: left;"><font style="font-size: 24px;"> GitHub: <a href="http://github.com/Rebolon">http://github.com/Rebolon</a></font></div>
+<div style="font-style: normal; font-variant: normal; text-align: left;"><span style="font-size: 23.640661239624023px;">Lead-Dev chez Peaks</span></div></section><section><h2>idee en vrac</h2>
+<div>
+<div style="text-align: left; "><font style="font-size: 18px;">LyonJS:</font></div>
+<div style="text-align: left; "><font style="font-size: 18px;">En intro : Insister sur le fait que je ne veux pas les convaincre de laisser Angular, mais  juste de leur donner envie de  tester Meteor</font></div>
+<div style="text-align: left; "><font style="font-size: 18px;">En conclusion : Insister sur le fait que oui avec du angular et une api rest on peut faire la même chose, mais pas aussi vite et avec une courbe d'apprentissage aussi rapide. Pour travailler efficacement avec JS/Node il faut du temps, tester des packages, et au final construire sa propre stack. Porteneuve avait fait une excellente pres sur ce qu'il considérait comme  étant "les bonnes pratiques" pour développer avec node.  Mais ça prend du temps et rien ne garanti que l'on part dans la bonne voie. Meteor pousse à mieux structurer son app et on y gagne en lisibilité. Et après avoir tester, je peux garantir que l'on y gagne en temps de développement.</font></div>
+<div style="text-align: left; "><br></div>
+<div style="text-align: left; "><font style="font-size: 18px;">montrer l'application lft de suite et donner l'url à tout le monde pour qu'ils testent</font></div>
+<div style="text-align: left; "><br></div>
+</div>
+<div><div><br></div></div></section><section><section><h2>Avant tout</h2>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<div>
+<ul>
+<li class="fragment">
+<span style="text-align: center;">Fermez les yeux</span>
+</li>
+<li class="fragment">
+<span style="text-align: center;">Respirez un grand coup</span>
+</li>
+<li class="fragment">
+<span style="text-align: center;">Oubliez NodeJS</span>
+</li>
+<li class="fragment">
+<span style="text-align: center;">Oubliez Angular</span>
+</li>
+<li class="fragment">
+<span style="text-align: center;">Acceptez la différence</span>
+<br>
+</li>
+<li class="fragment">
+<span style="text-align: center;">Ouvrez les yeux</span>
+</li>
+</ul>
+</div>
+<div>
+<br>
+</div>
+<div class="fragment">Meteor repose sur Node, mais c'est vraiment différent,<br>
+grâce ou à cause des Fibers</div>
+<div>
+<br>
+</div>
+</section><section><h2>CHIFFRES</h2>
+<div>
+    <br>
+</div>
+<div style="text-align: left; ">
+    <ul>
+<li>Angular : 01/2010 - 635 contrib - 972 issues -  16192 repo</li>
+        <li>Ember :    04/2011 - 322 contrib - 141 issues -     4008 repo</li>
+        <li>Meteor :  11/2011 -    98 contrib - 330 issues -     4771 repo</li>
+    </ul>
+<div>
+        <br>
+</div>
+    <p style="text-align: center; "><a href="http://www.google.fr/trends/explore#q=meteor%20js%2C%20ember%20js%2C%20knockout%20js%2C%20angular%20js%2C%20backbone%20js&amp;cmpt=q&amp;date=1%2F2010%2049m&amp;cmpt=date">tendances google</a></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+    <div>
+    </div>
+    <div>Au 06/02/2014</div>
+    <div>
+        <br>
+</div>
+</div>
+
+</section></section><section><h2><br></h2>
+<h2>Meteor C'est quoi ?</h2>
+<div><br></div>
+<div><br></div>
+<div>Un exemple est plus parlant</div>
+<div><br></div>
+<div>
+<a href="http://lyonjs.meteor.com">http://lyonjs.meteor.com</a><br>
+</div></section><section><section><h2><br></h2>
+<h2><br></h2>
+<h2>LES origineS Du Web</h2>
+<div>(enfin, pas tout à fait quand même)</div>
+<div><ul></ul></div></section><section><h2 style="font-style: normal; font-variant: normal;">TECHNOS</h2>
+<div style="font-size: 36.13835906982422px; font-style: normal; font-variant: normal; text-transform: none;">
+<br>
+</div>
+<div style="text-transform: none; font-variant: normal; font-style: normal; font-size: 36.13835906982422px;">
+<p>
+</p>
+<p>
+</p>
+<ul>
+<li style="text-align: left;" class="fragment">
+        <b>Server-side</b>
+        <span> : CGI, ASP, PHP, JEE, ...</span>
+        <br>
+</li>
+    <li class="fragment">
+        <b>Client-side</b>
+        <span> : HTML, Javascript, CSS, ...</span>
+        <br>
+</li>
+</ul>
+<p></p>
+<p></p>
+</div>
+
+</section><section><h2>Principe</h2>
+<div><br></div>
+<div><ol>
+<li class="fragment">HTTP Request</li>
+<li class="fragment">Process server-side</li>
+<li class="fragment">HTTP Response</li>
+<li class="fragment">Process client-side (dom rendering, js processing)</li>
+</ol></div></section><section><h2>AvantageS</h2>
+<div><br></div>
+<div><ul>
+<li class="fragment">Ca marche, et plutôt bien</li>
+<li class="fragment">Traitement côté serveur = charge client légère</li>
+</ul></div></section><section><h2>Inconvénients</h2>
+<div><br></div>
+<div><ul>
+<li class="fragment">La génération de l'affichage se fait côté serveur</li>
+<li class="fragment">1 requête = 1 réponse avec tout dedans (enfin presque)</li>
+<li class="fragment">La réponse est difficilement adaptée à chaque type de client (poste fixe / smartphone / tablette / ...) et le responsive Design ne résoud que partiellement ce problème</li>
+</ul></div></section><section><h2><br></h2>
+<h2><br></h2>
+<h2>Et ça fait 15 ans qu'on fonctionne comme ça</h2>
+<div><br></div>
+<div>(enfin presque)</div></section></section><section><section><h2><br></h2>
+<div><br></div>
+<div><br></div>
+<h2>2005-2007</h2>
+<h2>Légère évolution</h2>
+<div>(avec le fameux web 2.0)</div>
+<h2><br></h2></section><section><h2>
+<span style="font-size: 75.96px;">XML Http Request</span>
+</h2>
+<br><p class="fragment">
+<span>Wouahou, j'ai trouvé un truc dans le navigateur, on va l'appeler WEB 2.0 !</span>
+</p>
+<p><span><br></span></p>
+<ul>
+<li class="fragment">
+<span style="text-align: center;">Le client embarque une couche JS pour communiquer avec le serveur (parce qu'en natif, XML HTTP Request, c'est pénible)</span>
+</li>
+<li class="fragment">
+<span style="text-align: center;">On transfère moins de données sur le réseau</span>
+</li>
+<li class="fragment">
+<span style="text-align: center;">On fait beaucoup plus de requêtes HTTP</span>
+</li>
+<li class="fragment">
+<span style="text-align: center;">On fait de plus en plus de JS</span>
+</li>
+</ul></section><section><h2>Problèmes</h2>
+<div><br></div>
+<div><ul>
+<li class="fragment"><span style="text-align: center;">Certains renvoie du HTML [no comment]</span></li>
+<li class="fragment">
+<span style="text-align: center;">Pas de standard sur la façon de structurer son appli JS </span><br>
+</li>
+</ul></div>
+
+</section><section><h2>Résultats</h2>
+<div>
+<br>
+</div>
+<div>
+<ul>
+<li class="fragment">
+<span style="text-align: center;">Problème de maintenances</span>
+<br>
+</li>
+<li class="fragment">
+<span style="text-align: center;">Pas de test</span>
+</li>
+<li style="text-align: left;" class="fragment">
+<span style="text-align: center;">Code difficilement réutilisable</span>
+</li>
+</ul>
+<div>
+<br>
+</div>
+<div>
+<br>
+</div>
+<p class="fragment">Et,</p>
+</div>
+<div>
+<br>
+</div>
+</section><section><h2>Ca donne pas envie</h2>
+<div><br></div>
+<div>
+<img src="http://media.tumblr.com/tumblr_m5h4hqjnDA1r8gpct.gif" style="width: 702.6961521674191px; height: 385.0189127392239px; max-height: none; max-width: none;"><br>
+</div></section></section><section><section><h2><br></h2>
+<h2><br></h2>
+<h2>Bienvenue en 201X</h2>
+<div><br></div>
+<div>Javascript Frameworks</div></section><section><h2>Client-side</h2>
+<div><span><br></span></div>
+<div><div style="font-variant: normal; font-style: normal; font-size: 36px;">
+<ul>
+<li>
+<span style="text-align: center;">Angular</span><br>
+</li>
+<li><span style="text-align: center;">Ember</span></li>
+<li><span style="text-align: center;">...</span></li>
+</ul>
+<div>
+<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/rebolon/images/239594/angularjs_1_.png" style="width: 111.10003483644215px; height: 119.44790030267339px; max-height: none; max-width: none;"> <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/rebolon/images/239597/backbone_1_.png" style="width: 478.2487138704002px; height: 85.11219265431434px; max-height: none; max-width: none;">
+</div>
+<div>
+<span> </span><img src="https://s3.amazonaws.com/media-p.slid.es/uploads/rebolon/images/239595/792333d2bad390e8a2e23f5e2f4.png" style="width: 174.99200612862177px; height: 173.75814783266438px; max-height: none; max-width: none;"><img src="https://s3.amazonaws.com/media-p.slid.es/uploads/rebolon/images/239588/ko-logo_1_.png" style="width: 474.6529717216763px; height: 126.48470693823586px; max-height: none; max-width: none;">
+</div>
+</div></div></section><section><h2>Server-side</h2>
+<div><br></div>
+<div><ul>
+<li>Express</li>
+<li>"Vanilla" NodeJS</li>
+</ul></div></section><section><h2>BOTH-side</h2>
+<div><br></div>
+<div>
+<div style="font-size: 36px; font-style: normal; font-variant: normal;">
+<ul>
+<li style="text-align: left;">Derby</li>
+<li style="text-align: left;">SocketStream</li>
+<li style="text-align: left;">TowerJS</li>
+<li style="text-align: left;">
+<span style="text-align: center;">Me</span><span style="text-align: center;">teor</span>
+</li>
+<li style="text-align: left;"><span style="text-align: center;">SailJs</span></li>
+<li style="text-align: left;"><span style="text-align: center;">...</span></li>
+</ul>
+<div>
+<img src="http://d3ah62tf336cdf.cloudfront.net/images/logo.png" style="height: 114.01866235555052px; width: 114.01866235555052px; max-height: none; max-width: none;"> <img src="http://i1-scripts.softpedia-static.com/thumbnails/Tower-js-thumb.png?1361032622" style="height: 113.31311544005025px; width: 164.14864540379637px; max-height: none; max-width: none;"> <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/rebolon/images/38569/meteorjs.png" style="height: 118.34992207561272px; width: 117.71628649195765px; max-height: none; max-width: none;"> <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/rebolon/images/240823/sails-564x338_1_.png" style="width: 202.10271858866653px; height: 121.08657319017985px; max-height: none; max-width: none;"><br>
+</div>
+</div>
+</div></section><section><h2>Et il est où JQuery ?</h2>
+<div><br></div>
+<div>
+<img src="data:image/jpeg;base64,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" style="height: 376.64396786316485px; width: 317.0969269236211px; max-height: none; max-width: none;"><br>
+</div></section></section><section><section><h2>Principes</h2>
+<div><br></div>
+<div><ul>
+<li>Le server envoie le framework au client</li>
+<li>Le client exécute l'application</li>
+<li>L'application démarre les listeners et construit l'affichage</li>
+<li>L'application va faire des appels serveur</li>
+<li>Le serveur ne renvoi que des données (JSON)</li>
+<li>L'application reconstruit les templates requis</li>
+</ul></div></section><section><h2>Avantages</h2>
+<div><br></div>
+<div><ul>
+<li>Application plus structurée (arbo de fichier, gestion des événements...)</li>
+<li>Bande passante requise très légère</li>
+<li>L'application Js peut être cachée par le navigateur (le serveur indique au démarrage si une nouvelle version est disponible via un manifest)</li>
+<li>Potentiellement les données peuvent être cachées</li>
+<li>Réduit les problèmes de latence et de ré-exécution du JS sur le mobile (single-page-webApp)</li>
+</ul></div></section><section><h2>Inconvénients</h2>
+<div><br></div>
+<div><ul>
+<li>Applications événementielles qui change donc les habitudes de travail d'une équipe de développeur web classique</li>
+<li>Souvent : </li>
+<ul><li>programmation événementielle = spaghettis de callbacks</li></ul>
+<li>Le poste client travaille beaucoup (processeur et mémoire)</li>
+</ul></div></section><section><h2>Et Puis</h2>
+<div><br></div>
+<div>Faire faire du JS à un dèv ça donne ça :</div>
+<div><br></div>
+<div>
+<img src="http://media.tumblr.com/tumblr_m4vs4mr2oZ1r8th2o.gif" style="height: 364.9195994077296px; width: 646.8297874437156px; max-height: none; max-width: none;"><br>
+</div></section></section><section><h2>
+  Mais alors, Pourquoi MeteorJS ?
+</h2>
+<div>
+<br>
+</div>
+<div class="fragment" data-fragment-index="0">
+<img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR2bp598F_jdXa_exbRFVPO0K7JoKwXhcncMbm61vGMyJG0t6ya7w" style="height: 119px;"><br>http://blog.discourse.org/
+<br>
+</div>
+<div class="fragment" data-fragment-index="0">
+<br>
+</div>
+<div class="fragment" data-fragment-index="1">
+<h3>
+Jeff Atwood: co fondateur de StackOverflow</h3>
+http://eviltrout.com/2013/02/10/why-discourse-uses-emberjs.html
+</div>
+
+
+
+
+</section><section><section><h2>Meteor</h2>
+<div><br></div>
+<div><ul>
+<li class="fragment" data-fragment-index="0"><span style="text-align: center;">Framework client et serveur</span></li>
+<li class="fragment" data-fragment-index="1"><span style="text-align: center;">API cohérente entre client et serveur</span></li>
+<li class="fragment" data-fragment-index="2"><span style="text-align: center;"><span style="font-size: 35.46099090576172px; font-style: normal; font-variant: normal;">Back-End </span>sur NodeJS </span></li>
+<li class="fragment" data-fragment-index="3"><span style="text-align: center;">Linux, Mac et Windows (enfin presque)</span></li>
+<li class="fragment" data-fragment-index="4"><span style="text-align: center;">IE7+, FF, Chrome, Opera (mobile), mais mieux vaut utiliser les dernières versions</span></li>
+<li class="fragment" data-fragment-index="5">
+<span style="text-align: center;">Architecturé en package (bootstrap, accounts, </span><span style="text-align: center;">backbone, amplify...)</span><br>
+</li>
+<li class="fragment" data-fragment-index="6"><span style="text-align: center;">Industrialisé (déploiement, packaging, package repository...)</span></li>
+<li class="fragment" data-fragment-index="7"><span style="text-align: center;">Et SIMPLE !</span></li>
+</ul></div></section><section><h2>Attention</h2>
+<div>
+<br>
+</div>
+<div><br></div>
+<div>
+<ul>
+<li class="fragment">Toujours en beta (0.7.0.1)</li>
+<li class="fragment">Très jeune (<span style="font-size: 36.13835906982422px; font-style: normal; font-variant: normal;">juste 2 ans)</span>
+</li>
+</ul>
+</div>
+</section><section><h2>Mais</h2>
+<div>
+    <ul>
+<li class="fragment">C'est vraiment cool</li>
+<li class="fragment">Développement très rapide</li>
+<li class="fragment">
+    <span>Code est très structuré</span>
+</li>
+<li class="fragment">Communauté très active :</li>
+<ul>
+<li class="fragment">De plus en plus de conférence autour de MeteorJs (Berlin, Hambourg, Amsterdam, London, USA ...)</li>
+<li class="fragment">Nombreux projets : MySql, PostgreSql, AngularJs, LoadBalancer, Clustering, DataCache, Audit de code</li>
+<li class="fragment">Très bonne littérature sur le sujet</li>
+</ul>
+</ul>
+</div>
+</section><section><h2>Et</h2>
+<div><br></div>
+<div><br></div>
+<div>
+<ul>
+<li class="fragment" data-fragment-index="0">Derrière Meteor se trouve une petite équipe américaine</li>
+<li class="fragment" data-fragment-index="1">Ils viennent presque tous du MIT</li>
+<li class="fragment" data-fragment-index="2">Certains sont enseignants au MIT ou dans d'autres campus</li>
+<li class="fragment" data-fragment-index="3">Levé de fonds en juillet 2012</li>
+</ul>
+<div style="text-align: left;"><br></div>
+</div>
+<div style="text-align: center;" class="fragment" data-fragment-index="4">Au final, c'est un peu comme Sensio avec Symfony, mais avec plus d'argent et une vrai Révolution en ligne de mire</div></section><section><h2>PAr contre</h2>
+<div>
+<br>
+</div>
+<div>
+<span>Ils ont un look vraiment à part ;-)</span>
+<br>
+</div>
+<div>
+    <br>
+</div>
+<div>
+    <img src="http://meteor.com/people/naomi.jpg" style="height: 270px;"> <img src="http://meteor.com/people/glasser.jpg" style="height: 270px;"> <img src="http://meteor.com/people/geoff.jpg" style="height: 270px;"><br>
+</div>
+<div>
+    <a href="https://www.meteor.com/about/people">L'équipe au complet ici</a>
+</div>
+
+
+
+</section></section><section><h2>Inconvénients</h2>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><ul>
+<li>MongoDb only (MongoStream disponible, ou des alternatives non officielles et non réactives)</li>
+<li>Fibers mandatories</li>
+<li>Pas de web-components (ça va arriver)</li>
+</ul></div></section><section><section><h2>Concrètement</h2>
+<div class="fragment">
+Installation
+</div>
+<div class="fragment">
+<pre><code>curl https://install.meteor.com | /bin/sh</code></pre>
+</div>
+<br><div class="fragment">Création de l'appli</div>
+<div class="fragment">
+<pre><code> meteor create lyonJS &amp;&amp; cd $_</code></pre>
+</div>
+
+<div>
+<br>
+</div>
+<div class="fragment">Ca y est !</div>
+<div>
+<br>
+</div>
+<div class="fragment">En dèveloppement :</div>
+<div style="text-align: left; ">
+<ul>
+<li class="fragment">Instance Mongo automatique</li>
+<li class="fragment">Instance Node automatique</li>
+</ul>
+</div>
+
+
+</section><section><h2>Mais encore</h2>
+<div>
+<br>
+</div>
+<div>je veux ajouter bootstrap :</div>
+<div>
+<br>
+</div>
+<div>
+<pre><code> meteor add bootstrap</code></pre>
+</div>
+
+<div>
+<br>
+</div>
+<div><br></div>
+<div>
+<a href="http://docs.meteor.com/#packages">Liste des packages disponibles en natif</a>
+</div>
+<div>(coffeescript, underscore, ...)</div>
+
+</section><section><h2>authentification</h2>
+<div>
+<br>
+</div>
+<div>
+<pre><code>meteor add accounts-base</code><code>meteor add accounts-ui</code><code>meteor add accounts-password<br></code><code><br></code><code>// et ou</code><code>meteor add accounts-facebook</code><code><span style="font-family: monospace; font-size: 19.617965698242188px; font-style: normal; font-variant: normal;">meteor add accounts-twitter</span><br></code><code><span style="font-family: monospace; font-size: 19.617965698242188px; font-style: normal; font-variant: normal;">meteor add accounts-github</span><span style="font-family: monospace; font-size: 19.617965698242188px; font-style: normal; font-variant: normal;"><br></span></code><code><span style="font-family: monospace; font-size: 19.617965698242188px; font-style: normal; font-variant: normal;">meteor add accounts-google</span><span style="font-family: monospace; font-size: 19.617965698242188px; font-style: normal; font-variant: normal;"><br></span></code><code><span style="font-family: monospace; font-size: 19.617965698242188px; font-style: normal; font-variant: normal;">meteor add accounts-meetup</span><span style="font-family: monospace; font-size: 19.617965698242188px; font-style: normal; font-variant: normal;"><br></span></code><code><span style="font-family: monospace; font-size: 19.617965698242188px; font-style: normal; font-variant: normal;">meteor add accounts-weibo</span><span style="font-family: monospace; font-size: 19.617965698242188px; font-style: normal; font-variant: normal;"><br></span></code></pre>
+</div>
+<div>[<a href="https://github.com/Rebolon/meteor-sample-simpleVote/tree/step-0">step0</a>]</div></section><section><h2>Et alors, On continue ?</h2>
+<div><br></div>
+<div><br></div>
+<div>
+<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/rebolon/images/247722/popcorn-yes_1_.gif" style="width: 683.5383668429711px; height: 321.1962177037629px; max-height: none; max-width: none;"><br>
+</div></section><section><h2>Organisation du code</h2>
+<div><br></div>
+<div><br></div>
+<div>
+<ul><li><span style="text-align: center;"><b>Quick and dirty</b> : tout dans un fichier js + méthode Meteor.isClient / isServer [<a href="https://github.com/Rebolon/meteor-sample-simpleVote/tree/master">master</a>]</span></li></ul>
+<div><br></div>
+<div>OU</div>
+<div><br></div>
+<ul>
+<li>
+<span style="text-align: center;"><b>Better way</b> : des répertoires séparés (client / server / public / autres) [<a href="https://github.com/Rebolon/meteor-sample-simpleVote/tree/step-1">step1</a>]</span><br>
+</li>
+</ul>
+</div></section><section><h2>Yeoman est ton ami</h2>
+<div>
+    <br>
+</div>
+<div>
+<pre><code>npm install -g meteorite
+npm install -g yo
+npm install -g generator-meteor
+mkdir your-new-project &amp;&amp; cd $_
+yo meteor</code><code>[...]</code><code>meteor update &amp;&amp; meteor</code></pre>
+</div>
+<div>
+    Et voilà une belle structure Meteor, toute prête</div></section><section><h2>TempLATE Handlebar</h2>
+<p> </p>
+
+<div><pre><code>&lt;body&gt;
+  {{&gt; <b>error</b>}}</code><code>  {{&gt; <b>list</b>}}
+&lt;/body&gt;</code><code>
+&lt;template name="<b>error</b>"&gt;
+  {{getError}}
+&lt;/template&gt;</code><code>
+&lt;template name="<b>list</b>"&gt;
+  &lt;h1&gt;Votez pour un sujet&lt;/h1&gt; {{loginButtons}}
+  &lt;ol id="listSubjects"&gt; 
+<span style="font-family: monospace; font-size: 19.47386360168457px; font-style: normal; font-variant: normal;">  {{#each subjects}}</span>
+    &lt;li&gt;{{&gt; subject}}&lt;/li&gt;
+  {{/each}}&lt;/ol&gt;</code><code>
+  {{#unless subjects}} Aucun sujet en cours.{{/unless}}
+&lt;/template&gt;</code></pre></div>
+</section><section><h2>HeLpers</h2>
+<div>
+    <br>
+</div>
+<div>
+<pre><code> if (Meteor.isClient) { // useless if code in client folder</code><code>
+  Template.error.helpers({
+    <b>getError</b>: function () {
+	return Session.get('error');
+    }
+  });</code><code>
+}</code></pre>
+</div>
+</section><section><h2>Réactivité</h2>
+<div>
+    <br>
+</div>
+<div>Au niveau local : les Session</div>
+<div>
+<pre><code> 
+Session.set('error','Arrgh erreur interne inconnue');</code><code><br></code></pre>
+</div>
+
+<p>test sur <a href="http://lyonjs.meteor.com">http://lyonjs.meteor.com</a> et la console</p>
+<p>
+<br></p>
+<p>Au niveau online : DDP (Collections, Streams)</p>
+<pre><code> 
+Subjects = new Meteor.Collection('my-subjects');</code><code>Subjects.insert({label: "LyonJS like Meteor"});</code><code><br></code></pre>
+<br></section><section><h2>Persistence</h2>
+<div>
+    <br>
+</div>
+<div>MongoDB et le package MiniMongo</div>
+<div>
+    <br>
+</div>
+<div>
+    <pre style="font-style: normal; font-variant: normal; width: 860.24169921875px;"><code>Subjects = new Meteor.Collection('my-subjects');<br>
+Subjects.insert({label: "LyonJS like Meteor"});</code><code><br></code><code>Subjects.update(myId, {$set: {aNewField: itsValue}});</code><code><br></code><code>Subjects.remove({_id: oneId});</code><code><br></code><code>Subjects.find().forEach(function(item) {console.log(item);});</code></pre>
+</div>
+<div>
+    <br>
+</div>
+<div>
+    Disponible côté Client Et/Ou Serveur
+</div>
+
+</section><section><h2>Evenements</h2>
+<div>
+    <br>
+</div>
+<div>
+<pre><code> Template.newSubject.events({</code><code>
+    'focus #fldNewSubject' : function funcCleanEror() {
+	Session.set('error', '');
+    },</code><code>    </code><code>    'click #btnNewSubject': function funcDisplayLog() {</code><code>        Subjects.insert({label: whatEverYouWant});</code><code>    }</code><code>);</code></pre>
+</div>
+
+<p><br></p>
+<p>
+    Evénements disponibles: </p>
+<p>focus, click, keyX, mouseX ... + selector
+</p>
+
+</section><section><h2>MethodEs</h2>
+<div>
+    <br>
+</div>
+<div>
+<pre><code> Meteor.methods({
+     rmSubject: function funcRmSubject(id) {
+         var user = Meteor.user(),
+	     subject = Subjects.findOne({_id: id});
+
+         if (this.isSimulation) console.log('client-side only');</code><code>
+         if (!isAdmin())
+             return new Meteor.error(403, 'Suppression de sujet réservé aux admins.');
+	 if (!subject)
+              return new Meteor.error(404, 'Sujet non trouvé, suppression impossible');
+
+	 return Subjects.remove(id);</code><code>     }
+});</code></pre>
+</div>
+
+<p>
+    Et ce code peut être commun au client et serveur : gain de temps pour le controle de vos formulaires  
+</p>
+</section><section><h2>Latency Compensation</h2>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><ul>
+<li>MiniMongo</li>
+<li>isSimulation dans Meteor.Methods</li>
+</ul></div></section><section><h2>Test fonctionnel</h2>
+<div>
+<br>
+</div>
+<div>Projet Laika</div>
+<div>
+<pre><code>// installation</code><code>sudo npm install -g laika</code><code><br></code><code>// nouvelle instance de MongoDb
+mongod --smallfiles --noprealloc --nojournal</code><code><br></code><code>// installer phantomJs</code><code><span style="font-family: monospace; font-size: 19.47386360168457px; font-style: normal; font-variant: normal;">sudo npm install -g phantomjs</span><br></code></pre>
+</div>
+</section><section><h2>Déploiement EN TEST</h2>
+<div>
+    <br>
+</div>
+<p> Pour déployer son application sur http://lyonjs.meteor.com
+</p>
+<div>
+<pre><code> meteor deploy lyonjs</code></pre>
+</div>
+<div><br></div>
+<div><br></div>
+Si vous avez plus simple,<br>je suis preneur</section><section><h2>Déploiement en Prod</h2>
+<div>
+<br>
+</div>
+<div style="text-align:left;">
+    <ul>
+<li>
+            <span style="text-align: center;">Utiliser Phusion Passenger</span> : <a href="https://github.com/phusion/passenger/wiki/Phusion-Passenger:-Meteor-tutorial" style="text-align: center;">tuto ici</a>
+</li>
+</ul>
+</div>
+<div>
+    <br>
+</div>
+<div style="text-align:left;">
+<ul>
+<li>
+        <span>Ou pour déployer son application sur son serveur node</span>
+        <br>
+</li>
+</ul>
+<p>
+</p>
+<div style="font-size: 35.46099090576172px; font-style: normal; font-variant: normal;">
+<pre style="width: 859.7258911132813px;"><code> meteor bundle lft</code></pre>
+</div>
+<div style="text-align: left;">
+<ul>
+<li>
+        <span style="font-size: 34.991424560546875px;">Setter</span>
+    </li>
+</ul> les variables d'environnements<br><ul><ul>
+<li>MONGO_URL</li>
+        <li>ROOT_UL</li>
+    </ul></ul>
+<br><br>
+</div>
+</div>
+
+
+</section></section><section><section><h2>Et après ?</h2>
+<div>
+<br>
+</div>
+<div>Node a son Npm, <span>Meteor a Meteorite (sera intégré bientôt)</span>
+</div>
+<div>
+<br>
+</div>
+<div>
+<pre><code>npm install -g meteorite</code></pre>
+</div>
+<div>
+<br>
+</div>
+<div>Et remplacez la commande "meteor" par "mrt"</div>
+</section><section><h2>Fibers</h2>
+<div><br></div>
+<div><br></div>
+<div>C'est la base de Meteor côté serveur, </div>
+<div>mais on peut ne pas s'en soucier</div>
+<div><br></div>
+<div>
+<ul>
+<li>Développer "synchronous way" mais "non-blocking"</li>
+<li>Garder donc l'event-loop fonctionnel</li>
+</ul>
+<div style="text-align: left;"><br></div>
+</div>
+<div style="text-align: center;">
+<a href="http://meteorhacks.com/fibers-eventloop-and-meteor.html">Plus d'infos ici</a> </div></section><section><h2>Synchrone ou Asynchrone ?</h2>
+<div><br></div>
+<h3>API</h3>
+<div>
+<ul>
+<li>
+<span>Meteor.Collection.[insert/update/remove] : au choix</span><br>
+</li>
+<li><span style="text-align: center;">Meteor.methods : asynchrone sur le client, au choix sur le serveur</span></li>
+</ul>
+<div><br></div>
+<h3>Tools</h3>
+<div style="text-align: left;">
+<ul>
+<li>
+<span style="text-align: center;">Fibers/Futures</span><br>
+</li>
+<li style="font-size: 36.288230895996094px; font-style: normal; font-variant: normal; text-align: left;"><span style="text-align: center;">_wrapAsync</span></li>
+</ul>
+</div>
+<div><br></div>
+</div></section><section><h2>Développer facilement</h2>
+<div><br></div>
+<div><br></div>
+<div>Avec Nitrous.io et leur "parts"</div>
+<div>
+    <br>
+</div>
+<div>Créez-vous un compte Nitrous.io, puis</div>
+<div>
+<pre><code>parts install meteor </code></pre>
+</div>
+<div><br></div>
+<div>Ca y est vous avez un environnement opérationnel</div></section><section><h2>Amélioration de notre appli</h2>
+<div><br></div>
+<div>Ajout de la sécurité [<a href="https://github.com/Rebolon/meteor-sample-simpleVote/tree/step-2">step2</a>]</div>
+<div><div style="font-size: 36.50553894042969px; font-style: normal; font-variant: normal;"><pre style="width: 859.4340209960938px;"><code> mrt remove insecure</code><code>// Et gérer la collection avec les méthodes Allow / Deny</code></pre></div></div>
+<div><span><br></span></div>
+<div>
+Gestion du publish / subscribe [<a href="https://github.com/Rebolon/meteor-sample-simpleVote/tree/step-3">step3</a>]<br>
+</div>
+<div style="font-size: 36.50553894042969px; font-style: normal; font-variant: normal;"><div style="font-size: 36.50553894042969px; font-style: normal; font-variant: normal;"><pre style="width: 859.4340209960938px;"><code> mrt remove autopublish</code></pre></div></div>
+<div><br></div>
+<div>Utilisation d'un Router : <a href="http://pascoual.github.io/meteor-iron-router/?full">tuto ici</a> [<a href="https://github.com/Rebolon/meteor-sample-simpleVote/tree/step-4">step4</a>]</div>
+<div><pre><code> mrt add iron-router</code></pre></div></section><section><div>
+<div style="font-size: 35.46099090576172px; font-style: normal; font-variant: normal;">Ajout de fast-render [<a href="https://github.com/Rebolon/meteor-sample-simpleVote/tree/step-4.1">step4.1</a>]</div>
+<div style="font-size: 35.46099090576172px; font-style: normal; font-variant: normal;">
+<div style="font-size: 36.50553894042969px; font-style: normal; font-variant: normal;">
+    <pre style="width: 859.4340209960938px;"><code> mrt add fast-render</code></pre>
+</div>
+</div>
+<div style="font-size: 35.46099090576172px; font-style: normal; font-variant: normal;"><br></div>
+</div>
+</section><section><h2>
+    TESTER NOTRE APPLI    
+</h2>
+<div>
+    <div>
+<br><p></p>
+<ul><li>
+<span style="text-align: center;">Faire un package LyonJS</span><br>
+</li></ul>
+<p></p>
+<pre><code><span>mkdir monApp/packages/lyonJS &amp;&amp; cd $_</span></code><code><span>touch package.js smart.json lyonJS.js lyonJStests.js</span></code></pre>
+<div></div>
+<p></p>
+<ul><li>
+<span style="text-align: center;">Le tester : </span><br>
+</li></ul>
+<p></p>
+        <div><pre><code>cd monApp/packages/lyonJS</code><code>meteor test-packages ./ </code></pre></div>
+        <div>
+<ul><li>
+<span style="text-align: center;">Tester la réactivité </span><span style="text-align: center;">avec Laika </span><br>
+</li></ul>
+<div><br></div>
+</div>
+</div>
+<div>[<a href="https://github.com/Rebolon/meteor-sample-simpleVote/tree/step-5">step5</a>]</div>
+</div>
+
+</section><section><h2>Alternative à notre appli</h2>
+<div>
+<br>
+</div>
+<div>Ne plus passer par Mini-mongo mais par les "methods"</div>
+<div>
+<pre><code> // remplacer les insert/delete/update client-side par :</code><code>Meteor.call('addSubject', [params]);</code><code><span style="font-family: monospace; font-size: 20.094562530517578px; font-style: normal; font-variant: normal;">Meteor.call('rmSubject', [params]);</span><br></code><code><span style="font-family: monospace; font-size: 20.094562530517578px; font-style: normal; font-variant: normal;">Meteor.call('voteUpSubject', [params]);</span><span style="font-family: monospace; font-size: 20.094562530517578px; font-style: normal; font-variant: normal;"><br></span></code><code><span style="font-family: monospace; font-size: 20.094562530517578px; font-style: normal; font-variant: normal;">Meteor.call('voteDownSubject', [params]);</span></code></pre>
+</div>
+<div>[<a href="https://github.com/Rebolon/meteor-sample-simpleVote/tree/step-6">step6</a>] </div></section></section><section><h2>Meteor en 2014</h2>
+<div>
+<br>
+</div>
+<div>
+<ul style="width:100%;">
+<li>
+        <span>Meteor.UI le nouveau moteur de rendu</span>
+</li>
+    <li>
+        <span>Galaxy un hébergement professionnel</span>
+    </li>
+<li><span>La v1.0.0</span></li>
+</ul>
+<div>
+    <br>
+</div>
+<div>Et peut être</div>
+<ul style="width:100%;">
+<li>
+        <span>Déploiement multi-fournisseur </span>
+    </li>
+    <li>
+        <span>Mini-Sql ?  </span>
+</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+</section><section><h2>Plus d'info ici</h2>
+<div><br></div>
+<div>
+<ul>
+<li><a href="http://docs.meteor.com">http://docs.meteor.com</a></li>
+<li>
+<a href="http://www.youtube.com/user/MeteorVideos?feature=watch">http://www.youtube.com/user/MeteorVideos?feature=watch</a> (chaine video de meteor)<br>
+</li>
+<li>
+<a href="http://www.eventedmind.com/">http://www.eventedmind.com/</a> (screencast)</li>
+<li>
+<a href="http://themeteorbook.com/">http://themeteorbook.com/</a> (Ze livre)<br>
+</li>
+<li>
+<a href="https://github.com/awatson1978/meteor-cookbook">https://github.com/awatson1978/meteor-cookbook</a><br>
+</li>
+<li>
+<a href="http://meteorhacks.com/">http://meteorhacks.com/</a> (L'indispensable pour aller plus loin)<br>
+</li>
+<li>
+<a href="http://stackoverflow.com/questions/tagged/meteor">http://stackoverflow.com/questions/tagged/meteor</a><br>
+</li>
+</ul>
+</div>
+<div style="text-align: center;"><br></div></section><section><section><h2>Exemples d'appli</h2>
+<div>
+<a href="http://q42.com/">http://q42.com/</a> (site web classique)<br>
+</div>
+<div>
+<a href="http://www.gander.io/">http://www.gander.io/</a> (client mail mobile)</div>
+<div>
+<a href="http://lft.meteor.com">http://lft.meteor.com</a> (vote)</div>
+<div>
+<a href="http://magiccss4meteor.meteor.com/">http://magiccss4meteor.meteor.com/</a> (animation)<br>
+</div>
+<div>
+<a href="http://www.pat.io/">http://www.pat.io/</a>
+<span> (sondage)</span>
+<br>
+</div>
+<div>
+<a href="http://roguelike.meteor.com/">http://roguelike.meteor.com/</a>
+<span> (jeux)</span>
+<br>
+</div>
+<div>
+<a href="http://stormbound.verigames.com/play/">http://stormbound.verigames.com/play/</a> (jeux :unity+meteor)<br>
+</div>
+<div>
+<a href="http://azimuthc.ms/">http://azimuthc.ms/</a> (cms lite)</div>
+<div>
+<a href="http://weshoulddo.it/">http://weshoulddo.it/</a> (friend event)<br>
+</div>
+<div>
+<a href="http://weekdayfiller.com/">http://weekdayfiller.com/</a> (weblog: metafilter + reddit)<br>
+</div>
+<div>
+<a href="http://cool-counter.meteor.com">http://cool-counter.meteor.com</a>/ (compteur de presence)</div>
+<div>
+<a href="http://giteor.com">http://giteor.com</a> (déploiement continue)</div>
+<div><br></div>
+
+</section><section><p><a href="http://pegleg.it/" style="font-size: 36.13835906982422px; font-style: normal; font-variant: normal;">http://pegleg.it</a><span style="font-size: 36.13835906982422px; font-style: normal; font-variant: normal;"> (recherche de film)</span><br></p>
+<p>
+<a href="http://anonkun.com/">http://anonkun.com/</a>
+<span> (livre interactif)</span>
+<br></p>
+<div>
+<a href="http://subtitles.fiddleware.com/">http://subtitles.fiddleware.com/</a> (creation de sous-titre pour video)<br>
+</div>
+<div>
+<a href="http://synct.meteor.com/">http://synct.meteor.com/</a> (control du navigateur des clients)<br>
+</div>
+<div>
+<a href="http://my.sket.sh">http://my.sket.sh</a> (dessin)<br>
+</div>
+<div>
+<a href="http://drawmesomething.meteor.com/#">http://drawmesomething.meteor.com/#</a> (pixelArt)<br>
+</div>
+<div>
+<a href="http://portfolio.meteor.com/">http://portfolio.meteor.com</a> (portfolio)<br>
+</div>
+<div>
+<a href="https://groceriesio.herokuapp.com">https://groceriesio.herokuapp.com</a> (liste de course)<br>
+</div>
+<div>
+<a href="http://minitrello.meteor.com/">http://minitrello.meteor.com/</a> (minitrello)<br>
+</div>
+<div>
+<a href="http://scrum.meteor.com/">http://scrum.meteor.com/</a> (scrumboard)<br>
+</div>
+<div>
+<a href="http://demo.telesc.pe">http://demo.telesc.pe</a> (reddit-like board)<br>
+</div>
+<div>
+<a href="https://pushpinplanner.com/">https://pushpinplanner.com/</a> (plannification)</div>
+</section><section><div style="font-size: 36.13835906982422px; font-style: normal; font-variant: normal;">
+<a href="http://aufond.me/" style="font-size: 36.13835906982422px; font-style: normal; font-variant: normal;">http://aufond.me/</a>
+<span style="font-size: 36.13835906982422px; font-style: normal; font-variant: normal;"> (une timeline)</span>
+<br>
+</div>
+<div style="font-size: 36.13835906982422px; font-style: normal; font-variant: normal;">
+<a href="http://eraze.meteor.com/">http://eraze.meteor.com/</a> (chatroom privé et temporaire)<br>
+</div>
+<div style="font-size: 36.13835906982422px; font-style: normal; font-variant: normal;">
+<a href="http://assistant.io/">http://assistant.io/</a> (plannification de réunion)<br>
+</div>
+<div style="font-size: 36.13835906982422px; font-style: normal; font-variant: normal;">
+    <a href="http://qmental.org/">http://qmental.org/</a> (learning activities)<br>
+</div>
+<div>...</div>
+<div>
+<br>
+</div>
+<div>Bonne découverte</div>
+<div><br></div>
+<div><br></div>
+</section></section><section><h2>Des questions ?</h2>
+<div>
+    <br>
+</div>
+<div>
+    <br>
+</div>
+<img src="http://www.reactiongifs.com/wp-content/uploads/2013/11/id1Bow.gif" width="450px"></section>
+			</div>
+		</div>
+	</div>
+
+	<div class="deck-kudos">
+		<button class="kudos-button kudos-trigger" data-kudos-id="113409" data-kudoed-by-user="false">
+			<div class="kudos-heart">
+				<span class="kudos-icon icon i-heart-fill"></span>
+			</div>
+			<div class="kudos-count" data-kudos-value="0" data-kudos-id="113409"></div>
+		</button>
+	</div>
+
+	<div class="summary-bubble">
+		<div class="picture" style="background-image: url(https://www.gravatar.com/avatar/4078ae693324fa7c80129e261cda9eb0?s=140&amp;d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png)"></div>
+		<div class="text">
+			<h4>meteorjs, first walk</h4>
+			<p>By rebolon</p>
+		</div>
+	</div>
+
+</div>
+
+<div class="column">
+	<header>
+		<ul class="deck-social">
+			<li><div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false"></div></li>
+			<li><a href="https://twitter.com/share" class="twitter-share-button" data-text="meteorjs, first walk" data-url="http://slid.es/rebolon/meteorjs-first-walk">Tweet</a></li>
+			<li><div class="g-plusone" data-size="medium"></div></li>
+		</ul>
+
+
+		<div class="deck-options">
+			<a class="fork-button" data-tooltip="Fork this deck" href="#"><span class="icon i-fork"></span></a>
+			<a class="fullscreen-button" data-tooltip="Fullscreen" href="#"><span class="icon i-fullscreen"></span></a>
+			<a class="external-button" data-tooltip="Open in new window" href="/rebolon/meteorjs-first-walk/fullscreen" target="_blank"><span class="icon i-new-window"></span></a>
+			<a class="comment-button" data-tooltip="Comments" data-scroll-to href="#comments" data-scroll-to data-scroll-to-offset="-90"><span class="icon i-comment-stroke"></span></a>
+			<a class="share-button" data-tooltip="Share" href="#"><span class="icon i-share"></span></a>
+			<a class="edit-button" data-tooltip="Edit" href="/rebolon/meteorjs-first-walk/edit"><span class="icon i-pen-alt2"></span></a>
+		</div>
+
+		<div class="details">
+			<div class="deck-info">
+				<h3 class="title">meteorjs, first walk</h3>
+				<p class="description">Following my first meteorJs talk, here is the next step, more technical</p>
+				<ul class="deck-meta">
+					<li data-tooltip="Published date" data-tooltip-delay="500">
+						<span class="icon i-clock"></span>
+						<time class="value ago" datetime="2014-01-20 19:47:56 UTC"></time>
+					</li>
+					<li data-tooltip="Kudos" data-tooltip-delay="500">
+						<span class="icon i-heart-fill"></span>
+						<span class="value" data-kudos-value="0" data-kudos-id="113409"></span>
+					</li>
+					<li data-tooltip="Views" data-tooltip-delay="500">
+						<span class="icon i-eye"></span>
+						<span class="value">17</span>
+					</li>
+				</ul>
+			</div>
+
+			<div class="user-info">
+		<a class="icon i-cog edit" href="/users/edit" data-tooltip="Account settings"></a>
+	<div class="picture" style="background-image: url(https://www.gravatar.com/avatar/4078ae693324fa7c80129e261cda9eb0?s=140&amp;d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png)"></div>
+	<div class="text">
+		<h3>
+			<a href="/rebolon" class="username">rebolon</a>
+		</h3>
+		<p class="description"></p>
+		<ul class="links">
+			
+			 <li><a href="http://twitter.com/rebolon" target="_blank"><span class="icon i-twitter"></span>rebolon</a></li> 
+		</ul>
+	</div>
+	<div class="clear"></div>
+</div>
+
+			<div class="clear"></div>
+		</div>
+	</header>
+
+	<section class="comments" id="comments">
+		<div id="disqus_thread"></div>
+	</section>
+
+	<section class="deck-list">
+		<h2>More from <a href="/rebolon">rebolon</a></h2>
+		<ul class="carousel">
+			<li class="deck-thumbnail">
+  <div class="deck-image" style="background-image: url(https://s3.amazonaws.com/media-p.slid.es/thumbnails/rebolon/bb4ce7/test-debug-multi-plateforme.jpg)">
+    <a class="deck-link" href="/rebolon/test-debug-multi-plateforme"></a>
+  </div>
+  <footer class="deck-details">
+    <a class="author" href="/rebolon">
+      <span class="picture" style="background-image: url(https://www.gravatar.com/avatar/4078ae693324fa7c80129e261cda9eb0?s=140&amp;d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png)"></span>
+      <span class="name">rebolon</span>
+    </a>
+    <div class="stats">
+      <div>13<span class="icon i-eye"></span></div>
+    </div>
+  </footer>
+</li>
+<li class="deck-thumbnail">
+  <div class="deck-image" style="background-image: url(https://s3.amazonaws.com/media-p.slid.es/thumbnails/rebolon/1e85f7/casperjs.jpg)">
+    <a class="deck-link" href="/rebolon/casperjs"></a>
+  </div>
+  <footer class="deck-details">
+    <a class="author" href="/rebolon">
+      <span class="picture" style="background-image: url(https://www.gravatar.com/avatar/4078ae693324fa7c80129e261cda9eb0?s=140&amp;d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png)"></span>
+      <span class="name">rebolon</span>
+    </a>
+    <div class="stats">
+      <div>76<span class="icon i-eye"></span></div>
+    </div>
+  </footer>
+</li>
+<li class="deck-thumbnail">
+  <div class="deck-image" style="background-image: url(https://s3.amazonaws.com/media-p.slid.es/thumbnails/rebolon/0ebe31/meteorjs.jpg)">
+    <a class="deck-link" href="/rebolon/meteorjs"></a>
+  </div>
+  <footer class="deck-details">
+    <a class="author" href="/rebolon">
+      <span class="picture" style="background-image: url(https://www.gravatar.com/avatar/4078ae693324fa7c80129e261cda9eb0?s=140&amp;d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png)"></span>
+      <span class="name">rebolon</span>
+    </a>
+    <div class="stats">
+      <div>252<span class="icon i-eye"></span></div>
+    </div>
+  </footer>
+</li>
+<li class="deck-thumbnail">
+  <div class="deck-image" style="background-image: url(https://s3.amazonaws.com/media-p.slid.es/thumbnails/rebolon/8812fd/symfony2.jpg)">
+    <a class="deck-link" href="/rebolon/symfony2"></a>
+  </div>
+  <footer class="deck-details">
+    <a class="author" href="/rebolon">
+      <span class="picture" style="background-image: url(https://www.gravatar.com/avatar/4078ae693324fa7c80129e261cda9eb0?s=140&amp;d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png)"></span>
+      <span class="name">rebolon</span>
+    </a>
+    <div class="stats">
+      <div>185<span class="icon i-eye"></span></div>
+    </div>
+  </footer>
+</li>
+
+		</ul>
+	</section>
+
+</div>
+
+      </div>
+      <footer class="global-footer">
+  <small>
+
+    <div class="link-group">
+      <h5>Product</h5>
+      <a href="http://slid.es/">Home</a>
+      <a href="http://slid.es/explore">Explore</a>
+      <a href="http://slid.es/features">Features</a>
+      <a href="http://slid.es/pricing">Pricing</a>
+    </div>
+
+    <div class="link-group">
+      <h5>Help</h5>
+      <a href="http://help.slid.es" target="_blank">Forum</a>
+      <a href="http://help.slid.es/knowledgebase" target="_blank">Knowledge base</a>
+      <a href="#" data-feedback-mode="smartvote">Give feedback</a>
+      <a href="#" data-feedback-mode="contact">Report an issue</a>
+    </div>
+
+    <div class="link-group">
+      <h5>News</h5>
+      <a href="http://blog.slid.es" target="_blank">Blog</a>
+      <a href="http://twitter.com/slidesapp" target="_blank">Twitter</a>
+      <a href="http://facebook.com/slidesapp" target="_blank">Facebook</a>
+    </div>
+
+    <div class="link-group">
+      <h5>Company</h5>
+      <a href="http://slid.es/about">About Slides</a>
+      <a href="http://slid.es/terms">Terms</a>
+      <a href="http://slid.es/privacy">Privacy</a>
+    </div>
+
+    <div class="copyright"><span>Slides is made by Whim, LLC. &copy;2013</span></div>
+  </small>
+</footer>
+    </div> <!--! end of #container -->
+    
+<script>
+	var SLConfig = {"current_user":{"id":31920,"username":"rebolon","name":"","email":"richard.tribes@gmail.com","description":"","thumbnail_url":"https://www.gravatar.com/avatar/4078ae693324fa7c80129e261cda9eb0?s=140&d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","pro":false,"enterprise":false,"notify_on_receipt":false,"registered":true},"deck":{"id":113409,"slug":"meteorjs-first-walk","title":"meteorjs, first walk","description":"Following my first meteorJs talk, here is the next step, more technical","visibility":"all","published_at":"2014-01-20T19:47:56Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/rebolon/1e2253/meteorjs-first-walk.jpg","view_count":17,"user":{"id":31920,"username":"rebolon","name":"","email":"richard.tribes@gmail.com","description":"","thumbnail_url":"https://www.gravatar.com/avatar/4078ae693324fa7c80129e261cda9eb0?s=140&d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","pro":false,"enterprise":false,"notify_on_receipt":false,"registered":true},"background_transition":"fade","transition":"default","theme_id":null,"theme_font":"league","theme_color":"grey-blue","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":true,"rolling_links":true,"center":false,"should_loop":false,"rtl":false,"access_token":"yY7bzca9SRsYBY6CqZ7g1W3R2DUr"}};
+</script>
+    <script defer="defer" src="//slid.es/assets/application-5f9a5d584bdf58f4a332e841f9ca97fb.js" type="text/javascript"></script>
+    	<script src="//slid.es/assets/reveal.min-1e9b4bd931dbbf686946c2ad5159d8cd.js" type="text/javascript"></script>
+
+      <script>
+    analytics.identify('31920', {
+      name             : '',
+      email            : 'richard.tribes@gmail.com',
+    });
+  </script>
+
+  <script type="text/javascript">if (!NREUMQ.f) { NREUMQ.f=function() {
+NREUMQ.push(["load",new Date().getTime()]);
+var e=document.createElement("script");
+e.type="text/javascript";
+e.src=(("http:"===document.location.protocol)?"http:":"https:") + "//" +
+  "js-agent.newrelic.com/nr-100.js";
+document.body.appendChild(e);
+if(NREUMQ.a)NREUMQ.a();
+};
+NREUMQ.a=window.onload;window.onload=NREUMQ.f;
+};
+NREUMQ.push(["nrfj","beacon-5.newrelic.com","4fd2e9786b","1563900","cApZREQKWl9XFxZQVlAORB9FDVlE",0,453,new Date().getTime(),"","","","",""]);</script></body>
+</html>
