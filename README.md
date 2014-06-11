@@ -38,3 +38,9 @@ Step5 show
 
 Step6 show
  * how to use methods (and isSimulation) instead of mini-mongo
+ 
+Step6.1 show
+ * how to move to Blaze rendering (small modifications in that app)
+ * how to manage Router filtering (on NProgress in that example)
+ // @TODO :
+ * how to use hook on Collection modifications (must wait next meteor version with new Blaze features)

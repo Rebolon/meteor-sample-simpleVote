@@ -16,7 +16,7 @@
   {{/if}}
   
   {{#unless atLeatOneSubject}}
-  <cite>Aucun sujet en base, allez !</cite><br />
+  <cite>{{getLoadingStatus}}</cite><br />
   {{/unless}}
   
   <div class="form-group {{#if hasError}}has-error{{/if}}">

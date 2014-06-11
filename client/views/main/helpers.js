@@ -13,5 +13,10 @@ Template.main.helpers({
   
   hasError: function () {
     return !!Session.get('error');
+  },
+  
+  getLoadingStatus: function() {
+    return NProgress.status ? 'Chargement des votes...' : 
+    (Subjects.find().count() === 0 ? 'Aucun sujet en base, allez !' : '');
   }
 });

@@ -5,6 +5,7 @@
     "iron-router": {},
     "lyonJS": {
         "path": "./packages/lyonJS/"
-    }
+    },
+    "fast-render": {}
   }
 }
