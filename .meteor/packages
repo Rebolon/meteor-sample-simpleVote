@@ -4,10 +4,12 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-preserve-inputs
 accounts-base
 accounts-password
 bootstrap-3
 accounts-ui-bootstrap-3
 iron-router
+subs-manager
+fast-render
 lyonJS
+less

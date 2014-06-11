@@ -38,3 +38,11 @@ Step5 show
 
 Step6 show
  * how to use methods (and isSimulation) instead of mini-mongo
+ 
+Step7 show
+ * how to move to Blaze rendering (small modifications in that app)
+ * how to manage Router filtering (on NProgress in that example)
+ * how to use hook on Collection modifications
+ * how to add subs-manager to use cache on data subscription
+ * how to use less with css import
+ * how to use private folder to prevent client to access file directly

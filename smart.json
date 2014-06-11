@@ -5,6 +5,8 @@
     "iron-router": {},
     "lyonJS": {
         "path": "./packages/lyonJS/"
-    }
+    },
+    "fast-render": {},
+    "subs-manager": {}
   }
 }

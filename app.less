@@ -1,0 +1,15 @@
+/* CSS declarations go here */
+#login-dropdown-list {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  list-style: none;
+}
+
+/* animation for a new vote on screen */
+ @import "private/less/magic.min.css.import.less";
+ .blockVote.animateNewVote {
+     &:extend(.tinUpIn);
+ }
+ .blockVote.animateRemovedVote {
+     &:extend(.tinDownOut);
+ }
