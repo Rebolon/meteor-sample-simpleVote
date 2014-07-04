@@ -8,13 +8,14 @@
       "lyonJS": {
         "path": "packages/lyonJS"
       },
-      "fast-render": {}
+      "fast-render": {},
+      "subs-manager": {}
     },
     "packages": {
       "bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
-        "tag": "v3.1.1-1",
-        "commit": "63dd38968828bb8963636df93e9a1c45e2dfe67e"
+        "tag": "v3.2.0-1",
+        "commit": "17a63902fc6cf1096c5289d963c66cf28b474727"
       },
       "accounts-ui-bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
@@ -31,8 +32,13 @@
       },
       "fast-render": {
         "git": "https://github.com/arunoda/meteor-fast-render.git",
-        "tag": "v0.2.7",
-        "commit": "93069af91bd4050435bc2834455a3c98f58bebd2"
+        "tag": "v0.2.8",
+        "commit": "149984b1aff3a5642a270aff9bd9006872c8302e"
+      },
+      "subs-manager": {
+        "git": "https://github.com/meteorhacks/subs-manager.git",
+        "tag": "v1.0.1",
+        "commit": "38317052d1601002d4dff537e4e0f61d1aa36e6d"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

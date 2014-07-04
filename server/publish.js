@@ -10,4 +10,10 @@ Meteor.startup(function funcMeteorStartupPublish() {
             && limit > 3 && limit < 10 ? limit : 3;
     return Subjects.find({}, {sort: {count: -1}, limit: limitQuery});
   });
+  
+  Meteor.publish("down-subjects", function(limit) {
+    var limitQuery = Match.test(limit, Number)
+            && limit > 3 && limit < 10 ? limit : 3;
+    return Subjects.find({}, {sort: {count: 1}, limit: limitQuery});
+  });
 });

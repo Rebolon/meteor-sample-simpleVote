@@ -6,6 +6,7 @@
     "lyonJS": {
         "path": "./packages/lyonJS/"
     },
-    "fast-render": {}
+    "fast-render": {},
+    "subs-manager": {}
   }
 }
