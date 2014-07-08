@@ -1,4 +1,4 @@
-Template.main.helpers({
+Template.vote.helpers({
   atLeatOneSubject: function () {
     return Subjects.find().count();
   },

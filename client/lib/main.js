@@ -4,6 +4,7 @@ Log.info('client/lib');
 (function () {
   Session.setDefault("error", "");
   Session.setDefault("topLimit", 3);
+  Session.setDefault("downLimit", 5);
   
   var Main = {
     Alert: {

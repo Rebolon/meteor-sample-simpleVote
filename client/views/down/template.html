@@ -1,0 +1,19 @@
+<template name="down">
+<h1>Classement des sujets {{getDown}}</h1>
+  
+  {{> downList}}
+  
+  <cite>{{getLoadingStatus}}</cite><br />
+  
+  <button id="goToVote" class="btn btn-link">Aller voter</button>
+</template>
+
+<template name="downList">
+  {{#if atLeatOneSubject}}
+  <ol>
+  {{#each subjects}}
+    <li>{{label}} : {{count}}</li>
+  {{/each}}
+  </ol>
+  {{/if}}
+</template>

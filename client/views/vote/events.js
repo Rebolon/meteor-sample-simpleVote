@@ -1,4 +1,4 @@
-Template.main.events({
+Template.vote.events({
   'click button': function() {
     Rebolon.Alert.resetError();
   },
@@ -26,4 +26,12 @@ Template.main.events({
     data.value = el.value || '';
     Meteor.call('addSubject', data, Rebolon.Collection.checkError); 
   },
+  
+  "click #goToTop": function () {
+    Router.go('/top');
+  },
+
+  "click #goToDown": function () {
+    Router.go('/down');
+  }
 });
