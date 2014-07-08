@@ -1,6 +1,4 @@
 Meteor.startup(function funcMeteorStartupPublish() {
-  var Future = Npm.require('fibers/future');
-
   Meteor.publish("all-subjects", function() {
       return Subjects.find();
   });
